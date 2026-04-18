@@ -4,43 +4,64 @@ import styles from './MainMenu.module.scss';
 
 export default function MainMenu() {
   const [open, setOpen] = useState(false);
-  const close = () => setOpen(false);
+  const closeMenu = () => setOpen(false);
 
-  const linkClass = ({ isActive }) =>
-    `${styles.link} ${isActive ? styles.active : ''}`;
+  const navLinkClass = ({ isActive }) =>
+    `${styles.navLink} ${isActive ? styles.active : ''}`;
 
   return (
-    <header className={styles.navbar}>
-      <div className={styles.inner}>
-        <Link className={styles.brand} to='/' onClick={close}>
-          New Wave Festival
+    <header className={styles.header}>
+      <div className={`container ${styles.inner}`}>
+        <Link to='/' className={styles.logo} onClick={closeMenu}>
+          <span className={styles.logoAccent}>NEW</span> WAVE
         </Link>
 
         <button
-          className={styles.toggler}
           type='button'
-          onClick={() => setOpen((v) => !v)}
+          className={styles.burgerButton}
+          onClick={() => setOpen((prev) => !prev)}
           aria-expanded={open}
-          aria-controls='main-nav'
+          aria-controls='main-navigation'
           aria-label='Toggle navigation'
         >
-          <span className={styles.burger} />
+          <span />
+          <span />
+          <span />
         </button>
 
-        <nav
-          id='main-nav'
-          className={`${styles.nav} ${open ? styles.open : ''}`}
+        <div
+          className={`${styles.navigationWrap} ${open ? styles.open : ''}`}
+          id='main-navigation'
         >
-          <NavLink className={linkClass} to='/' end onClick={close}>
-            Home
-          </NavLink>
-          <NavLink className={linkClass} to='/prices' onClick={close}>
-            Prices
-          </NavLink>
-          <NavLink className={styles.cta} to='/order-a-ticket' onClick={close}>
-            Order a ticket
-          </NavLink>
-        </nav>
+          <nav className={styles.nav}>
+            <NavLink to='/' end className={navLinkClass} onClick={closeMenu}>
+              Home
+            </NavLink>
+            <NavLink to='/prices' className={navLinkClass} onClick={closeMenu}>
+              Tickets
+            </NavLink>
+            <NavLink
+              to='/order-a-ticket'
+              className={navLinkClass}
+              onClick={closeMenu}
+            >
+              Book
+            </NavLink>
+            <NavLink to='/' className={navLinkClass} onClick={closeMenu}>
+              FAQ
+            </NavLink>
+          </nav>
+
+          <div className={styles.actions}>
+            <Link
+              to='/order-a-ticket'
+              className={styles.ctaButton}
+              onClick={closeMenu}
+            >
+              Get Tickets
+            </Link>
+          </div>
+        </div>
       </div>
     </header>
   );
