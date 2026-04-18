@@ -1,25 +1,36 @@
-$color-text: #141414;
-$color-text-bright: #fff;
-$color-background: #fff;
+$color-primary: #bf40ff;
+$color-secondary: #00e5ff;
+$color-tertiary: #ff007f;
 
-$color-border: rgba(0, 0, 0, 0.18);
-$color-skeleton: rgba(0, 0, 0, 0.08);
-$color-surface: rgba(0, 0, 0, 0.02);
-$color-surface-2: rgba(0, 0, 0, 0.03);
+$color-text: #f5f5f5;
+$color-text-muted: rgba(255, 255, 255, 0.64);
+$color-text-dark: #121212;
 
-$color-success: #01916d;
-$color-info: #2b7cb3;
-$color-warning: #f0932b;
-$color-error: #ea2027;
-$color-error-back: #ff5d6c;
+$color-background: #0a0a0a;
+$color-background-2: #111111;
+$color-surface: #151515;
+$color-surface-2: #1b1b1b;
+$color-surface-3: #202020;
 
-$font-header: 'Source Sans Pro', sans-serif;
-$font-text: 'Source Sans Pro', sans-serif;
+$color-border: rgba(255, 255, 255, 0.1);
+$color-border-strong: rgba(255, 255, 255, 0.18);
+$color-skeleton: rgba(255, 255, 255, 0.08);
+
+$color-success: #00c48c;
+$color-info: #2f80ed;
+$color-warning: #f2c94c;
+$color-error: #ff5c7a;
+$color-error-back: rgba(255, 92, 122, 0.14);
+
+$font-header: 'Inter', sans-serif;
+$font-text: 'Inter', sans-serif;
 
 $base-size: 14px;
+
 $radius-sm: 10px;
 $radius-md: 14px;
-$radius-lg: 18px;
+$radius-lg: 22px;
+$radius-xl: 28px;
 
 $transition-fast: 160ms ease;
 $transition: 220ms ease;
