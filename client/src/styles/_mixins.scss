@@ -8,7 +8,7 @@
   }
 }
 
-@mixin card($bg: $color-background) {
+@mixin card($bg: $color-surface) {
   padding: 14px;
   border-radius: $radius-lg;
   border: 1px solid $color-border;
@@ -17,26 +17,41 @@
 
 @mixin inputBase {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 14px;
   border-radius: $radius-md;
   border: 1px solid $color-border;
-  background: $color-background;
+  background: $color-surface;
+  color: $color-text;
+  outline: none;
+  transition:
+    border-color $transition-fast,
+    background $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: rgba(191, 64, 255, 0.45);
+  }
 }
 
 @mixin buttonBase {
-  padding: 10px 14px;
+  padding: 11px 16px;
   border-radius: $radius-md;
   border: 1px solid $color-border;
-  background: $color-background;
+  background: $color-surface;
+  color: $color-text;
   cursor: pointer;
   transition:
     background $transition-fast,
+    border-color $transition-fast,
     transform $transition-fast;
 }
 
 @mixin hoverLift {
   &:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 }
 
