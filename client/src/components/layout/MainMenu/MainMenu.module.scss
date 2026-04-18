@@ -1,136 +1,197 @@
 @use '../../../styles/settings.scss' as *;
 
-.navbar {
+.header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 10, 0.78);
+  backdrop-filter: blur(14px);
+  z-index: 10;
 }
 
 .inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 10px 16px;
+  min-height: 78px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 24px;
 }
 
-.brand {
-  font-weight: 800;
-  letter-spacing: 0.2px;
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   text-decoration: none;
+  font-family: $font-header;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: $color-text;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}
+
+.logoAccent {
+  margin-right: 6px;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    $color-primary 45%,
+    $color-secondary 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.navigationWrap {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
 
 .nav {
-  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.link {
+.navLink {
+  position: relative;
   text-decoration: none;
-  padding: 8px 10px;
-  border-radius: $radius-md;
-  opacity: 0.85;
+  color: $color-text-muted;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 50px;
   transition:
+    color $transition-fast,
     background $transition-fast,
-    opacity $transition-fast;
-  color: $color-text;
-}
+    transform $transition-fast;
 
-.link:hover {
-  background: $color-surface-2;
-  opacity: 1;
+  &:hover {
+    color: $color-text;
+    background: rgba(255, 255, 255, 0.04);
+  }
 }
 
 .active {
-  background: $color-skeleton;
-  opacity: 1;
-  font-weight: 600;
-}
-
-.cta {
-  text-decoration: none;
-  padding: 9px 12px;
-  border-radius: $radius-md;
-  border: 1px solid $color-border;
-  background: $color-background;
-  transition: transform $transition-fast;
   color: $color-text;
 }
 
-.cta:hover {
-  transform: translateY(-1px);
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.toggler {
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 20px;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d67bff 0%, $color-primary 100%);
+  transition:
+    transform $transition-fast,
+    opacity $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.98;
+  }
+}
+
+.burgerButton {
   display: none;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
   margin-left: auto;
-  width: 42px;
-  height: 38px;
-  border-radius: $radius-md;
+  width: 46px;
+  height: 46px;
   border: 1px solid $color-border;
-  background: $color-background;
+  border-radius: 14px;
+  background: $color-surface;
   cursor: pointer;
+
+  span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 59px;
+    background: $color-text;
+  }
 }
 
-.burger,
-.burger::before,
-.burger::after {
-  background: $color-text;
-}
-
-.burger {
-  display: inline-block;
-  position: relative;
-  width: 18px;
-  height: 2px;
-}
-
-.burger::before,
-.burger::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 18px;
-  height: 2px;
-}
-
-.burger::before {
-  top: -6px;
-}
-.burger::after {
-  top: 6px;
+@media (max-width: 992px) {
+  .navigationWrap {
+    gap: 14px;
+  }
 }
 
 @media (max-width: 768px) {
-  .toggler {
+  .inner {
+    min-height: 72px;
+    gap: 16px;
+  }
+
+  .burgerButton {
     display: inline-flex;
   }
 
-  .nav {
+  .navigationWrap {
+    position: absolute;
     display: none;
-    width: 100%;
-    margin-top: 10px;
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: 14px;
+    top: calc(100% + 10px);
+    left: 16px;
+    right: 16px;
+    margin-left: 0;
+    padding: 16px;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    background: rgba(17, 17, 17, 0.96);
+    backdrop-filter: blur(14px);
   }
 
   .open {
     display: flex;
   }
 
-  .link,
-  .cta {
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .navLink {
     width: 100%;
-    text-align: left;
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ctaButton {
+    width: 100%;
   }
 }
