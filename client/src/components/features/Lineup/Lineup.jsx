@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import Concerts from './../Concerts/Concerts';
 import {
   getConcerts,
@@ -24,10 +25,15 @@ export default function Lineup() {
   }, [dispatch]);
 
   const filtered = useMemo(() => {
-    return concerts.filter((c) => {
-      const matchesQ = c.performer.trim().toLowerCase().includes(q);
-      const matchesDay = day === 'all' || String(c.day) === day;
-      return matchesQ && matchesDay;
+    return concerts.filter((concert) => {
+      const matchesQuery = concert.performer
+        .trim()
+        .toLowerCase()
+        .includes(q.toLowerCase());
+
+      const matchesDay = day === 'all' || String(concert.day) === day;
+
+      return matchesQuery && matchesDay;
     });
   }, [concerts, q, day]);
 
@@ -36,48 +42,80 @@ export default function Lineup() {
     request.success && concerts.length > 0 && filtered.length === 0;
 
   return (
-    <div>
-      <div className={styles.controls}>
-        <input
-          className={styles.input}
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder='Search performer…'
-          aria-label='Search performer'
-        />
+    <div className={styles.lineup}>
+      <div className={styles.topBar}>
+        <div className={styles.searchBox}>
+          <input
+            className={styles.input}
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder='Search artist...'
+            aria-label='Search artist'
+          />
+        </div>
 
-        <select
-          className={styles.select}
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
-          aria-label='Filter day'
-        >
-          <option value='all'>All days</option>
-          <option value='1'>Day 1</option>
-          <option value='2'>Day 2</option>
-          <option value='3'>Day 3</option>
-        </select>
+        <div className={styles.filters}>
+          <button
+            type='button'
+            className={`${styles.filterButton} ${
+              day === 'all' ? styles.active : ''
+            }`}
+            onClick={() => setDay('all')}
+          >
+            All days
+          </button>
+          <button
+            type='button'
+            className={`${styles.filterButton} ${
+              day === '1' ? styles.active : ''
+            }`}
+            onClick={() => setDay('1')}
+          >
+            Friday
+          </button>
+          <button
+            type='button'
+            className={`${styles.filterButton} ${
+              day === '2' ? styles.active : ''
+            }`}
+            onClick={() => setDay('2')}
+          >
+            Saturday
+          </button>
+          <button
+            type='button'
+            className={`${styles.filterButton} ${
+              day === '3' ? styles.active : ''
+            }`}
+            onClick={() => setDay('3')}
+          >
+            Sunday
+          </button>
+        </div>
       </div>
 
       {request.pending && <SkeletonGrid count={6} />}
       {request.error && <AlertBox variant='warning'>{request.error}</AlertBox>}
 
       {showNoData && (
-        <EmptyState title='No concerts' description='Try again later.' />
+        <EmptyState title='No concerts yet' description='Try again later.' />
       )}
 
       {showNoMatches && (
         <div className={styles.noMatches}>
           <EmptyState
-            title='No matches'
-            description='Try changing search or day.'
+            title='No matches found'
+            description='Try another search or change the selected day.'
           />
           <button
             type='button'
             className={styles.clearButton}
-            onClick={() => setQ('')}
+            onClick={() => {
+              setQ('');
+              setDay('all');
+            }}
           >
-            Clear search
+            Clear filters
           </button>
         </div>
       )}
