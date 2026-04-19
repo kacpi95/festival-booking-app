@@ -1,14 +1,22 @@
 import PromoCarousel from '../../components/features/PromoCarousel/PromoCarousel';
 import Lineup from '../../components/features/Lineup/Lineup';
+import styles from './HomePage.module.scss';
 
 export default function HomePage() {
   return (
-    <>
+    <div className={styles.homepage}>
       <PromoCarousel />
-      <div className={`container`}>
-        <h1>Who's on?</h1>
-        <Lineup />
-      </div>
-    </>
+
+      <section className={styles.lineupSection}>
+        <div className='container'>
+          <div className={styles.sectionHeading}>
+            <span className={styles.eyebrow}>The Soundscape</span>
+            <h2 className={styles.title}>Lineup</h2>
+          </div>
+
+          <Lineup />
+        </div>
+      </section>
+    </div>
   );
 }
