@@ -1,15 +1,68 @@
 @use '../../../styles/settings.scss' as *;
 
 .footer {
-  margin-top: 3rem;
-  padding: 14px 0;
-  background: $color-text;
-  color: rgba(255, 255, 255, 0.75);
+  margin-top: 80px;
+  padding: 60px 0 40px;
+  border-top: 1px solid $color-border;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.02) 100%),
+    $color-background;
 }
 
 .inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-text;
+}
+
+.copy {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $color-text-muted;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
 }
