@@ -5,15 +5,20 @@ export default function Concert({ performer, price, genre, day, image }) {
     <article className={styles.card}>
       <div className={styles.imageWrap}>
         <img className={styles.image} src={image} alt={performer} />
+        <div className={styles.imageOverlay} />
+
+        <div className={styles.topMeta}>
+          <span className={styles.dayBadge}>Day {day}</span>
+        </div>
       </div>
 
       <div className={styles.body}>
+        <p className={styles.genre}>{genre}</p>
         <h3 className={styles.title}>{performer}</h3>
-        <p className={styles.subtitle}>{genre}</p>
 
-        <div className={styles.meta}>
-          <span className={styles.badge}>Day {day}</span>
-          <span className={styles.badge}>${price}</span>
+        <div className={styles.footerRow}>
+          <span className={styles.price}>${price}</span>
+          <span className={styles.ticketBadge}>Live show</span>
         </div>
       </div>
     </article>
