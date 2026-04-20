@@ -1,5 +1,12 @@
 @use '../../../styles/settings.scss' as *;
 
 .grid {
-  @include gridAuto(240px, 16px);
+  @include gridAuto(260px, 22px);
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    @include gridAuto(220px, 16px);
+  }
 }
