@@ -1,18 +1,29 @@
 @use '../../../styles/settings.scss' as *;
 
 .card {
-  @include card($color-background);
-  padding: 0;
+  position: relative;
   overflow: hidden;
-  transition: transform $transition-fast;
+  border: 1px solid $color-border;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+
+  transition:
+    transform $transition-fast,
+    border-color $transition-fast;
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.18);
   }
 }
 
 .imageWrap {
-  height: 160px;
+  position: relative;
+  height: 290px;
   overflow: hidden;
   background: $color-surface-2;
 }
@@ -22,44 +33,127 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 600ms ease;
+  transition:
+    transform 700ms ease,
+    filter 300ms ease;
 }
 
 .card:hover .image {
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.08) 0%,
+    rgba(10, 10, 10, 0.1) 35%,
+    rgba(10, 10, 10, 0.72) 100%
+  );
+  pointer-events: none;
+}
+
+.topMeta {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.dayBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: $color-text;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  background: rgba(10, 10, 10, 0.68);
 }
 
 .body {
-  padding: 12px 12px 14px;
-  display: grid;
-  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 18px 20px;
+}
+
+.genre {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $color-secondary;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .title {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.15;
+  color: $color-text;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
-.subtitle {
-  margin: 0;
-  opacity: 0.75;
-}
-
-.meta {
+.footerRow {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   margin-top: 6px;
 }
 
-.badge {
+.price {
+  color: $color-text;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ticketBadge {
   display: inline-flex;
   align-items: center;
-  height: 26px;
-  padding: 0 10px;
-  border-radius: 100px;
-  border: 1px solid $color-border;
-  background: $color-surface-2;
-  font-size: 13px;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(191, 64, 255, 0.24);
+  color: $color-text;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(191, 64, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+  .card {
+    border-radius: 20px;
+  }
+
+  .imageWrap {
+    height: 240px;
+  }
+
+  .body {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 1.28rem;
+  }
+
+  .footerRow {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
 }
