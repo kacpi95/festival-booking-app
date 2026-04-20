@@ -1,64 +1,97 @@
 @use '../../../styles/settings.scss' as *;
 
 .grid {
-  @include gridAuto(240px, 16px);
+  @include gridAuto(260px, 22px);
 }
 
 .card {
-  border-radius: $radius-md;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background: $color-surface;
+  border-radius: 24px;
+  border: 1px solid $color-border;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
 }
 
 .body {
-  padding: 12px;
+  padding: 18px 18px 20px;
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .block {
-  background: $color-skeleton;
-  border-radius: 100px;
-  animation: pulse 1.2s infinite ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite linear;
 }
 
 .image {
   @extend .block;
-  height: 150px;
+  height: 290px;
   border-radius: 0;
 }
 
 .line {
   @extend .block;
   height: 14px;
+  border-radius: 50px;
 }
 
 .lineShort {
   @extend .block;
   height: 14px;
-  width: 65%;
+  width: 60%;
+  border-radius: 50px;
 }
 
 .badges {
   display: flex;
   gap: 8px;
+  margin-top: 4px;
 }
 
 .badge {
   @extend .block;
-  height: 22px;
-  width: 72px;
+  width: 78px;
+  height: 28px;
+  border-radius: 50px;
 }
 
-@keyframes pulse {
+@keyframes shimmer {
   0% {
-    opacity: 0.5;
+    background-position: 200% 0;
+    opacity: 0.65;
   }
   50% {
-    opacity: 0.9;
+    opacity: 1;
   }
   100% {
-    opacity: 0.5;
+    background-position: -200% 0;
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    @include gridAuto(220px, 16px);
+  }
+
+  .card {
+    border-radius: 20px;
+  }
+
+  .image {
+    height: 240px;
+  }
+
+  .body {
+    padding: 16px;
   }
 }
