@@ -35,21 +35,6 @@ export default function PromoCarousel() {
             </Link>
           </div>
         </div>
-
-        <div className={styles.bottomInfo}>
-          <div className={styles.infoItem}>
-            <span className={styles.infoLabel}>Location</span>
-            <span className={styles.infoValue}>Warsaw, Poland</span>
-          </div>
-          <div className={styles.infoItem}>
-            <span className={styles.infoLabel}>Dates</span>
-            <span className={styles.infoValue}>Aug 21–23, 2026</span>
-          </div>
-          <div className={styles.infoItem}>
-            <span className={styles.infoLabel}>Experience</span>
-            <span className={styles.infoValue}>Music • Lights • Energy</span>
-          </div>
-        </div>
       </div>
     </section>
   );
