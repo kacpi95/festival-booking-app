@@ -1,27 +1,53 @@
 @use '../../../styles/settings.scss' as *;
 
 .alert {
-  padding: 12px 14px;
+  padding: 14px 16px;
   margin: 12px 0;
-  border-radius: $radius-md;
-  font-size: 14px;
-  line-height: 1.35;
+  border-radius: 18px;
+  font-size: 1rem;
+  line-height: 1.5;
   border: 1px solid $color-border;
-  background: $color-surface;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.035) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+  color: $color-text;
+  backdrop-filter: blur(8px);
 }
 
 .info {
-  border-color: rgba($color-info, 0.35);
+  border-color: rgba(47, 128, 237, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(47, 128, 237, 0.14) 0%,
+    rgba(47, 128, 237, 0.05) 100%
+  );
 }
 
 .warning {
-  border-color: rgba($color-warning, 0.35);
+  border-color: rgba(242, 201, 76, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(242, 201, 76, 0.14) 0%,
+    rgba(242, 201, 76, 0.05) 100%
+  );
 }
 
 .success {
-  border-color: rgba($color-success, 0.35);
+  border-color: rgba(0, 196, 140, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 196, 140, 0.14) 0%,
+    rgba(0, 196, 140, 0.05) 100%
+  );
 }
 
 .danger {
-  border-color: rgba($color-error, 0.35);
+  border-color: rgba(255, 92, 122, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 92, 122, 0.14) 0%,
+    rgba(255, 92, 122, 0.05) 100%
+  );
 }
