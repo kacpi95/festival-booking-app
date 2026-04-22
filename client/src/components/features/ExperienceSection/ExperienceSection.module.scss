@@ -1,0 +1,218 @@
+@use '../../../styles/settings.scss' as *;
+
+.section {
+  padding: 72px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.stageCard {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid $color-border;
+  background: $color-surface;
+}
+
+.stageImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.stageOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.08) 0%,
+    rgba(10, 10, 10, 0.18) 38%,
+    rgba(10, 10, 10, 0.84) 100%
+  );
+}
+
+.stageLabel {
+  margin-bottom: 8px;
+  color: $color-secondary;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.stageTitle {
+  margin: 0;
+  color: $color-text;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.sideColumn {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 22px;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 198px;
+  padding: 34px 30px;
+  border-radius: 28px;
+  border: 1px solid $color-border;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025) 0%,
+      rgba(191, 64, 255, 0.05) 100%
+    ),
+    $color-surface;
+}
+
+.infoTitle {
+  margin: 0 0 14px;
+  color: $color-text;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.infoText {
+  max-width: 460px;
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.smallCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.smallCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 172px;
+  padding: 24px 22px;
+  border-radius: 26px;
+  border: 1px solid $color-border;
+}
+
+.vipCard {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 127, 0.08) 0%,
+    rgba(255, 0, 127, 0.03) 100%
+  );
+}
+
+.cityCard {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 229, 255, 0.08) 0%,
+    rgba(0, 229, 255, 0.03) 100%
+  );
+}
+
+.icon {
+  margin-bottom: auto;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.smallTitle {
+  margin: 18px 0 8px;
+  color: $color-text;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.smallText {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stageCard {
+    min-height: 360px;
+  }
+
+  .sideColumn {
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 28px 0 56px;
+  }
+
+  .grid,
+  .sideColumn,
+  .smallCards {
+    gap: 16px;
+  }
+
+  .stageCard,
+  .infoCard,
+  .smallCard {
+    border-radius: 22px;
+  }
+
+  .stageCard {
+    min-height: 300px;
+  }
+
+  .infoCard {
+    min-height: auto;
+    padding: 24px 20px;
+  }
+
+  .smallCards {
+    grid-template-columns: 1fr;
+  }
+
+  .smallCard {
+    min-height: 150px;
+    padding: 20px 18px;
+  }
+
+  .infoTitle {
+    margin-bottom: 10px;
+  }
+
+  .infoText,
+  .smallText {
+    font-size: 0.9rem;
+  }
+}
