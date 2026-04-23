@@ -221,3 +221,36 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 16px;
+  }
+
+  .card {
+    border-radius: 20px;
+  }
+
+  .cardInner {
+    padding: 20px 16px 16px;
+  }
+
+  .cardTitle {
+    margin-top: 30px;
+    font-size: 1.55rem;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+
+  .description {
+    min-height: auto;
+  }
+}
