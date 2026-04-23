@@ -2,6 +2,7 @@ import PromoCarousel from '../../components/features/PromoCarousel/PromoCarousel
 import Lineup from '../../components/features/Lineup/Lineup';
 import styles from './HomePage.module.scss';
 import ExperienceSection from '../../components/features/ExperienceSection/ExperienceSection';
+import JoinPulseSection from '../../components/features/JoinPulseSection/JoinPulseSection';
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
           <Lineup />
         </div>
       </section>
+      <JoinPulseSection />
     </div>
   );
 }
