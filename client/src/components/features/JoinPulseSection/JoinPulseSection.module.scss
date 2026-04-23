@@ -1,0 +1,105 @@
+@use '../../../styles/settings.scss' as *;
+
+.section {
+  padding: 40px 0 0;
+}
+
+.card {
+  padding: 72px 24px;
+  border-radius: 32px;
+  border: 1px solid $color-border;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(191, 64, 255, 0.08), transparent 38%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    ),
+    $color-background;
+}
+
+.title {
+  margin: 0;
+  color: $color-text;
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.text {
+  max-width: 620px;
+  margin: 22px auto 0;
+  color: $color-text-muted;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.form {
+  max-width: 560px;
+  margin: 34px auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.input {
+  @include inputBase;
+  height: 52px;
+  padding-inline: 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.button {
+  min-width: 180px;
+  height: 52px;
+  border: 0;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, #d67bff 0%, $color-primary 100%);
+  cursor: pointer;
+
+  transition:
+    transform $transition-fast,
+    opacity $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.98;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 24px;
+  }
+
+  .card {
+    padding: 48px 18px;
+    border-radius: 24px;
+  }
+
+  .text {
+    margin-top: 16px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    margin-top: 26px;
+  }
+
+  .button {
+    width: 100%;
+    min-width: 0;
+  }
+}
