@@ -1,0 +1,154 @@
+@use '../../../styles//settings.scss' as *;
+
+.infoSection {
+  margin-top: 84px;
+}
+
+.sectionTitle {
+  margin: 0 0 22px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: $color-text;
+  text-transform: uppercase;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 22px;
+}
+
+.infoLarge {
+  min-height: 420px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.infoImageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.infoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.infoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.42) 0%,
+    rgba(10, 10, 10, 0.82) 100%
+  );
+}
+
+.infoContent {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 26px;
+  z-index: 1;
+}
+
+.infoSide {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 22px;
+}
+
+.infoMiniGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.infoCard {
+  border-radius: 24px;
+  border: 1px solid $color-border;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.025) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+
+  padding: 26px 24px;
+}
+
+.infoTitle {
+  margin: 0 0 10px;
+  color: $color-text;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.infoText {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: $color-text-muted;
+}
+
+.infoAccentPink {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 127, 0.08) 0%,
+    rgba(255, 0, 127, 0.03) 100%
+  );
+}
+
+.infoAccentCyan {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 229, 255, 0.08) 0%,
+    rgba(0, 229, 255, 0.03) 100%
+  );
+}
+
+@media (max-width: 1024px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoSide {
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoCard {
+    border-radius: 20px;
+  }
+
+  .infoSection {
+    margin-top: 58px;
+  }
+
+  .infoLarge {
+    min-height: 320px;
+  }
+
+  .infoMiniGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .infoContent,
+  .infoCard {
+    padding: 20px 18px;
+  }
+
+  .infoTitle {
+    font-size: 1.2rem;
+  }
+}
