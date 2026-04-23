@@ -1,0 +1,179 @@
+@use '../../../styles/settings.scss' as *;
+
+.card {
+  padding: 26px 24px;
+  border-radius: 24px;
+  border: 1px solid $color-border;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+}
+
+.cardHeader {
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  margin: 0 0 8px;
+  color: $color-text;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cardSub {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.field {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.label {
+  color: #d791ff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.input {
+  @include inputBase;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dayTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.dayOption {
+  position: relative;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  span {
+    min-height: 46px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.06);
+    color: $color-text-muted;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background $transition-fast,
+      border-color $transition-fast,
+      color $transition-fast,
+      transform $transition-fast;
+  }
+
+  input:checked + span {
+    border-color: rgba(0, 229, 255, 0.45);
+    background: rgba(0, 229, 255, 0.12);
+    color: #4eeeff;
+  }
+}
+
+.summary {
+  display: grid;
+  gap: 12px;
+  margin: 8px 0 18px;
+  padding-top: 6px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.summaryLabel {
+  color: $color-text-muted;
+  font-size: 0.96rem;
+}
+
+.summaryValue {
+  color: $color-secondary;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.totalPrice {
+  color: $color-text;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 6px;
+  color: $color-text-muted;
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  a {
+    color: $color-text;
+    margin: 0 4px;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}
+
+.checkbox {
+  margin-top: 3px;
+}
+
+.button {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 22px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d67bff 0%, $color-primary 100%);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition:
+    transform $transition-fast,
+    opacity $transition-fast;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
