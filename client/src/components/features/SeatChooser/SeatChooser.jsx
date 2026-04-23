@@ -48,32 +48,32 @@ export default function SeatChooser({ chosenDay, chosenSeat, updateSeat }) {
         onClick={(e) => updateSeat(e, seatId)}
         aria-pressed={selected}
         aria-label={`Seat ${seatId}${taken ? ' taken' : ''}${selected ? ' selected' : ''}`}
-      >
-        {seatId}
-      </button>
+      />
     );
   };
 
   return (
-    <section>
-      <h3>Pick a seat</h3>
-
+    <section className={styles.section}>
       <div className={styles.legend}>
         <span className={styles.legendItem}>
-          <span className={`${styles.legendDot} ${styles.dotTaken}`} /> taken
+          <span className={`${styles.legendDot} ${styles.dotTaken}`} />
+          Taken
         </span>
         <span className={styles.legendItem}>
-          <span className={`${styles.legendDot} ${styles.dotFree}`} /> free
+          <span className={`${styles.legendDot} ${styles.dotFree}`} />
+          Free
         </span>
         <span className={styles.legendItem}>
           <span className={`${styles.legendDot} ${styles.dotSelected}`} />
-          selected
+          Selected
         </span>
       </div>
 
+      <div className={styles.stage}>Main Stage</div>
+
       {loadSeats?.pending && <Loader />}
       {loadSeats?.error && (
-        <AlertBox variant='warning'>Couldn't load seats...</AlertBox>
+        <AlertBox variant='warning'>Couldn&apos;t load seats.</AlertBox>
       )}
 
       {loadSeats?.success && (
