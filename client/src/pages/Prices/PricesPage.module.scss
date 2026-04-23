@@ -1,108 +1,121 @@
 @use '../../styles/settings.scss' as *;
 
 .page {
-  padding: 30px 0 30px;
+  padding-bottom: 80px;
+  background:
+    radial-gradient(circle at top, rgba(191, 64, 255, 0.06), transparent 28%),
+    linear-gradient(180deg, $color-background 0%, #080808 100%);
 }
 
-.header {
-  display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap: 16px;
-  align-items: start;
-  margin: 10px 0 16px;
+.content {
+  margin-top: -24px;
 }
 
-.title {
-  margin: 0 0 8px;
-  font-size: 2.2rem;
-  line-height: 1.1;
-}
-
-.lead {
-  max-width: 62ch;
-  margin: 0;
-  opacity: 0.8;
-}
-
-.summaryCard {
-  @include card($color-surface-2);
-  display: grid;
-  gap: 10px;
-}
-
-.summaryRow {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.summaryLabel {
-  opacity: 0.7;
-}
-.summaryValue {
-  font-weight: 700;
-}
-
-.cta {
-  @include buttonBase;
-  display: inline-flex;
-  justify-content: center;
-  text-decoration: none;
-  margin-top: 6px;
-  @include hoverLift;
-
-  &:hover {
-    background: $color-surface-2;
-  }
+.pricingSection {
+  margin-top: 26px;
 }
 
 .grid {
-  margin-top: 16px;
-  @include gridAuto(260px, 16px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .card {
-  @include card($color-background);
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid $color-border;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.025) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+
   overflow: hidden;
-  transition: transform $transition-fast;
+  transition:
+    transform $transition-fast,
+    border-color $transition-fast;
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-5px);
   }
 }
 
-.cardTop {
+.cardInner {
+  padding: 22px 20px 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  flex-direction: column;
+  min-height: 100%;
 }
 
-.badge {
+.planLabel {
+  position: absolute;
+  top: 14px;
+  left: 14px;
   display: inline-flex;
   align-items: center;
-  height: 26px;
+  min-height: 28px;
   padding: 0 10px;
-  border-radius: 100px;
-  border: 1px solid $color-border;
-  background: $color-surface-2;
-  font-size: 13px;
-}
-
-.price {
-  font-size: 1.3rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
   font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .cardTitle {
-  margin: 0 0 10px;
+  margin: 32px 0 10px;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: $color-text;
+  text-transform: uppercase;
+}
+
+.priceRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.price {
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.oldPrice {
+  color: $color-text-muted;
   font-size: 1rem;
-  opacity: 0.85;
+  font-weight: 700;
+  text-decoration: line-through;
+  transform: translateY(-3px);
+}
+
+.description {
+  min-height: 72px;
+  margin: 16px 0 0;
+  color: $color-text-muted;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.featuresBlock {
+  margin-top: 20px;
+}
+
+.featuresTitle {
+  margin: 0 0 14px;
+  color: $color-secondary;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .list {
   display: grid;
-  gap: 8px;
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -110,54 +123,297 @@
 
 .listItem {
   display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 8px;
+  grid-template-columns: 14px 1fr;
+  gap: 10px;
   align-items: start;
-  opacity: 0.9;
+  color: $color-text;
+  font-size: 1rem;
+  line-height: 1.45;
 }
 
-.check {
-  display: inline-grid;
-  width: 18px;
-  height: 18px;
-  place-items: center;
-  border-radius: 6px;
-  border: 1px solid $color-border;
-  background: $color-surface-2;
-  font-size: 12px;
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  background: currentColor;
 }
 
-.faq {
-  margin-top: 22px;
+.cta {
+  margin-top: 24px;
+  min-height: 46px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    transform $transition-fast,
+    opacity $transition-fast;
+}
+
+.purple {
+  border-color: rgba(191, 64, 255, 0.22);
+
+  .planLabel {
+    background: rgba(191, 64, 255, 0.16);
+    color: #d791ff;
+    border: 1px solid rgba(191, 64, 255, 0.24);
+  }
+
+  .price,
+  .featuresTitle,
+  .dot {
+    color: #c97bff;
+  }
+
+  .cta {
+    background: rgba(255, 255, 255, 0.08);
+    color: $color-text;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+  }
+}
+
+.cyan {
+  border-color: rgba(0, 229, 255, 0.24);
+
+  .planLabel {
+    background: rgba(0, 229, 255, 0.16);
+    color: #79f3ff;
+    border: 1px solid rgba(0, 229, 255, 0.24);
+  }
+
+  .price,
+  .featuresTitle,
+  .dot {
+    color: #23e7ff;
+  }
+
+  .cta {
+    background: $color-secondary;
+    color: $color-text-dark;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.pink {
+  border-color: rgba(255, 0, 127, 0.22);
+
+  .planLabel {
+    background: rgba(255, 0, 127, 0.16);
+    color: #ff80bf;
+    border: 1px solid rgba(255, 0, 127, 0.24);
+  }
+
+  .price,
+  .featuresTitle,
+  .dot {
+    color: #ff62b0;
+  }
+
+  .cta {
+    background: rgba(255, 255, 255, 0.08);
+    color: $color-text;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+  }
+}
+
+.infoSection {
+  margin-top: 84px;
 }
 
 .sectionTitle {
-  margin: 0 0 10px;
-  font-size: 1.4rem;
+  margin: 0 0 22px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: $color-text;
+  text-transform: uppercase;
 }
 
-.faqGrid {
+.infoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 22px;
 }
 
-.faqItem {
-  @include card($color-surface-2);
+.infoLarge {
+  min-height: 420px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
 }
 
-.faqTitle {
-  margin: 0 0 6px;
-  font-size: 1rem;
+.infoImageWrap {
+  position: absolute;
+  inset: 0;
 }
 
-.faqText {
+.infoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.infoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.42) 0%,
+    rgba(10, 10, 10, 0.82) 100%
+  );
+}
+
+.infoContent {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 26px;
+  z-index: 1;
+}
+
+.infoSide {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 22px;
+}
+
+.infoMiniGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.infoCard {
+  border-radius: 24px;
+  border: 1px solid $color-border;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.025) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+
+  padding: 26px 24px;
+}
+
+.infoTitle {
+  margin: 0 0 10px;
+  color: $color-text;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.infoText {
   margin: 0;
-  opacity: 0.8;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: $color-text-muted;
 }
 
-@media (max-width: 900px) {
-  .header {
+.infoAccentPink {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 127, 0.08) 0%,
+    rgba(255, 0, 127, 0.03) 100%
+  );
+}
+
+.infoAccentCyan {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 229, 255, 0.08) 0%,
+    rgba(0, 229, 255, 0.03) 100%
+  );
+}
+
+@media (max-width: 1024px) {
+  .grid,
+  .infoGrid {
     grid-template-columns: 1fr;
   }
+
+  .infoSide {
+    grid-template-rows: auto auto;
+  }
 }
+
+@media (max-width: 768px) {
+  .page {
+    padding-bottom: 56px;
+  }
+
+  .content {
+    margin-top: -14px;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+
+  .card,
+  .infoCard {
+    border-radius: 20px;
+  }
+
+  .cardInner {
+    padding: 20px 16px 16px;
+  }
+
+  .cardTitle {
+    margin-top: 30px;
+    font-size: 1.55rem;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+
+  .description {
+    min-height: auto;
+  }
+
+  .infoSection {
+    margin-top: 58px;
+  }
+
+  .infoLarge {
+    min-height: 320px;
+  }
+
+  .infoMiniGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .infoContent,
+  .infoCard {
+    padding: 20px 18px;
+  }
+
+  .infoTitle {
+    font-size: 1.2rem;
+  }
+}
+
