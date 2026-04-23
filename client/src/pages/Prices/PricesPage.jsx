@@ -1,123 +1,195 @@
+import { Link } from 'react-router-dom';
+
 import AlertBox from '../../components/ui/AlertBox/AlertBox';
 import styles from './PricesPage.module.scss';
+import pricePageHeroImage from '../../assets/price-page-hero-image.png';
+import pricePageInfoSection from '../../assets/price-page-info-section.png';
 
 const PRICES = [
   {
-    day: 1,
+    id: 1,
+    label: 'Sonic Opening',
+    title: 'Day 01',
     price: 25,
-    workshops: [
-      'Rock Music Style',
-      'How to make your voice growl',
-      'Make your voice stronger',
-      'History of Rock',
+    oldPrice: 40,
+    accent: 'purple',
+    description: 'Best for visitors who want to experience one selected day.',
+    features: [
+      'Access to 1 festival day',
+      'Main stage entry',
+      'Standard standing zone',
+      'Opening shows & selected attractions',
     ],
   },
   {
-    day: 2,
-    price: 25,
-    workshops: [
-      'Find your real tune',
-      'Find your real YOU',
-      'Feel the music',
-      'Jam session',
+    id: 2,
+    label: 'The Peak',
+    title: 'Day 02',
+    price: 35,
+    oldPrice: 55,
+    accent: 'cyan',
+    description:
+      'Perfect if you want more music, more artists, and more energy.',
+    features: [
+      'Access to any 2 festival days',
+      'Main stage + side stages',
+      'Priority entry lane',
+      'More time to explore the full lineup',
     ],
   },
   {
-    day: 3,
+    id: 3,
+    label: 'Final Echo',
+    title: 'Day 03',
     price: 50,
-    workshops: [
-      'Increase your vocal range',
-      'How to properly warm up before singing',
-      "It's time for YOU!",
+    oldPrice: 75,
+    accent: 'pink',
+    description: 'The full festival pass for the complete 3-day experience.',
+    features: [
+      'Access to all 3 festival days',
+      'All stages included',
+      'Fast-track festival entry',
+      'Best value for full weekend access',
     ],
   },
 ];
 
 export default function PricesPage() {
   return (
-    <div className={`container ${styles.container}`}>
-      <header className={styles.header}>
-        <div>
-          <h1 className={styles.title}>Tickets & Pricing</h1>
-          <p className={styles.lead}>
-            Prices may differ depending on the festival day. Each ticket
-            includes the main performance plus 10+ workshops to boost your vocal
-            skills and confidence.
+    <div className={styles.page}>
+      <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <img src={pricePageHeroImage} alt='Festival crowd and stage' />
+        </div>
+
+        <div className={`container ${styles.heroContent}`}>
+          <h1 className={styles.heroTitle}>Choose Your Vibe</h1>
+          <p className={styles.heroText}>
+            Limited access passes for one, two, or all three days of the Neon
+            Pulse festival experience.
           </p>
         </div>
+      </section>
 
-        <div className={styles.summaryCard}>
-          <div className={styles.summaryRow}>
-            <span className={styles.summaryLabel}>From</span>
-            <span className={styles.summaryValue}>$25</span>
+      <div className={`container ${styles.content}`}>
+        <AlertBox variant='info'>
+          <strong>Good to know:</strong> Day 01 gives access to one festival
+          day, Day 02 covers any two days, and Day 03 is the full 3-day pass.
+        </AlertBox>
+
+        <section
+          className={styles.pricingSection}
+          aria-label='Festival ticket plans'
+        >
+          <div className={styles.grid}>
+            {PRICES.map(
+              ({
+                id,
+                label,
+                title,
+                price,
+                oldPrice,
+                description,
+                features,
+                accent,
+              }) => (
+                <article
+                  key={id}
+                  className={`${styles.card} ${styles[accent]}`}
+                >
+                  <span className={styles.planLabel}>{label}</span>
+
+                  <div className={styles.cardInner}>
+                    <h2 className={styles.cardTitle}>{title}</h2>
+
+                    <div className={styles.priceRow}>
+                      <span className={styles.price}>${price}</span>
+                      <span className={styles.oldPrice}>${oldPrice}</span>
+                    </div>
+
+                    <p className={styles.description}>{description}</p>
+
+                    <div className={styles.featuresBlock}>
+                      <h3 className={styles.featuresTitle}>Included access:</h3>
+
+                      <ul className={styles.list}>
+                        {features.map((feature) => (
+                          <li key={feature} className={styles.listItem}>
+                            <span className={styles.dot} />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Link to='/order-a-ticket' className={styles.cta}>
+                      Select Ticket
+                    </Link>
+                  </div>
+                </article>
+              ),
+            )}
           </div>
-          <div className={styles.summaryRow}>
-            <span className={styles.summaryLabel}>Days</span>
-            <span className={styles.summaryValue}>1–3</span>
-          </div>
-          <div className={styles.summaryRow}>
-            <span className={styles.summaryLabel}>Workshops</span>
-            <span className={styles.summaryValue}>10+</span>
-          </div>
+        </section>
 
-          <a className={styles.cta} href='/order-a-ticket'>
-            Order a ticket
-          </a>
-        </div>
-      </header>
+        <section className={styles.infoSection} aria-label='Ticket information'>
+          <h2 className={styles.sectionTitle}>Good to know</h2>
 
-      <AlertBox variant='info'>
-        <strong>Attention!</strong> Children under 4 can enter for free with an
-        adult ticket.
-      </AlertBox>
+          <div className={styles.infoGrid}>
+            <article className={`${styles.infoCard} ${styles.infoLarge}`}>
+              <div className={styles.infoImageWrap}>
+                <img
+                  src={pricePageInfoSection}
+                  alt='Festival seating area'
+                  className={styles.infoImage}
+                />
+                <div className={styles.infoOverlay} />
+              </div>
 
-      <section className={styles.grid} aria-label='Pricing by day'>
-        {PRICES.map(({ day, price, workshops }) => (
-          <article key={day} className={styles.card}>
-            <div className={styles.cardTop}>
-              <span className={styles.badge}>Day {day}</span>
-              <span className={styles.price}>${price}</span>
+              <div className={styles.infoContent}>
+                <h3 className={styles.infoTitle}>Dynamic Seat Selection</h3>
+                <p className={styles.infoText}>
+                  All standard tickets include access to the general standing
+                  area. VIP upgrades and selected reserved zones may be
+                  available during checkout depending on ticket type.
+                </p>
+              </div>
+            </article>
+
+            <div className={styles.infoSide}>
+              <article className={styles.infoCard}>
+                <h3 className={styles.infoTitle}>Payment Flexibility</h3>
+                <p className={styles.infoText}>
+                  We accept major credit cards and digital payments. Installment
+                  options may be available for full 3-day passes.
+                </p>
+              </article>
+
+              <div className={styles.infoMiniGrid}>
+                <article
+                  className={`${styles.infoCard} ${styles.infoAccentPink}`}
+                >
+                  <h3 className={styles.infoTitle}>Easy Refund</h3>
+                  <p className={styles.infoText}>
+                    Cancellation requests can be submitted up to 14 days before
+                    the event for eligible ticket types.
+                  </p>
+                </article>
+
+                <article
+                  className={`${styles.infoCard} ${styles.infoAccentCyan}`}
+                >
+                  <h3 className={styles.infoTitle}>24/7 Support</h3>
+                  <p className={styles.infoText}>
+                    Our team is available online to help with booking questions,
+                    seat issues, and ticket access.
+                  </p>
+                </article>
+              </div>
             </div>
-
-            <h2 className={styles.cardTitle}>Workshops included</h2>
-            <ul className={styles.list}>
-              {workshops.map((w) => (
-                <li key={w} className={styles.listItem}>
-                  <span className={styles.check}>✓</span>
-                  <span>{w}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </section>
-
-      <section className={styles.faq} aria-label='Pricing notes'>
-        <h2 className={styles.sectionTitle}>Good to know</h2>
-        <div className={styles.faqGrid}>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqTitle}>One ticket = one day</h3>
-            <p className={styles.faqText}>
-              Tickets are day-based. If you want to attend multiple days, book
-              each day separately.
-            </p>
           </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqTitle}>Seat selection</h3>
-            <p className={styles.faqText}>
-              Choose an available seat during checkout. Taken seats can’t be
-              selected.
-            </p>
-          </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqTitle}>Payment</h3>
-            <p className={styles.faqText}>
-              After booking, you’ll receive an email with payment instructions
-              (demo flow).
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
