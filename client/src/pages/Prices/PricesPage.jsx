@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 import AlertBox from '../../components/ui/AlertBox/AlertBox';
 import styles from './PricesPage.module.scss';
-import pricePageHeroImage from '../../assets/price-page-hero-image.png';
 import pricePageInfoSection from '../../assets/price-page-info-section.png';
+import TicketsHero from '../../components/features/TicketsHero/TicketsHero';
 
 const PRICES = [
   {
@@ -57,19 +57,7 @@ const PRICES = [
 export default function PricesPage() {
   return (
     <div className={styles.page}>
-      <section className={styles.hero}>
-        <div className={styles.heroBackground}>
-          <img src={pricePageHeroImage} alt='Festival crowd and stage' />
-        </div>
-
-        <div className={`container ${styles.heroContent}`}>
-          <h1 className={styles.heroTitle}>Choose Your Vibe</h1>
-          <p className={styles.heroText}>
-            Limited access passes for one, two, or all three days of the Neon
-            Pulse festival experience.
-          </p>
-        </div>
-      </section>
+      <TicketsHero />
 
       <div className={`container ${styles.content}`}>
         <AlertBox variant='info'>

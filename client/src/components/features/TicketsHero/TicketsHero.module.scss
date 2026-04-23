@@ -1,0 +1,97 @@
+@use '../../../styles/settings.scss' as *;
+
+.hero {
+  position: relative;
+  height: clamp(300px, 45vh, 420px);
+  overflow: hidden;
+  background: $color-background;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(10, 10, 10, 0.38) 0%,
+        rgba(10, 10, 10, 0.62) 45%,
+        rgba(10, 10, 10, 0.92) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(10, 10, 10, 0.22) 0%,
+        rgba(10, 10, 10, 0.08) 50%,
+        rgba(10, 10, 10, 0.22) 100%
+      );
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.heroContent {
+  position: relative;
+  height: 100%;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(2.8rem, 8vw, 5.8rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    #c988ff 0%,
+    #9d80ff 22%,
+    #33d8ff 52%,
+    #7ec7ff 70%,
+    #ff88d2 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroText {
+  max-width: 760px;
+  margin: 16px auto 0;
+  color: $color-text-muted;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 260px;
+  }
+
+  .heroContent {
+    padding-top: 94px;
+  }
+
+  .heroText {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+}
