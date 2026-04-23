@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
 import styles from './PromoCarousel.module.scss';
-import bgc from '../../../assets/bgc.jpg';
+import homeHeroImage from '../../../assets/home-hero-image.jpg';
 
 export default function PromoCarousel() {
   return (
     <section className={styles.hero}>
       <div className={styles.background}>
-        <img src={bgc} alt='Crowd enjoying New Wave Festival concert' />
+        <img src={homeHeroImage} alt='Crowd enjoying New Wave Festival concert' />
       </div>
 
       <div className={`container ${styles.content}`}>

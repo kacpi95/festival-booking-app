@@ -1,5 +1,5 @@
 import styles from './ExperienceSection.module.scss';
-import Experience from '../../../assets/Experience.png';
+import homeExperienceImage from '../../../assets/home-experience-image.png';
 
 export default function ExperienceSection() {
   return (
@@ -8,7 +8,7 @@ export default function ExperienceSection() {
         <div className={styles.grid}>
           <article className={styles.stageCard}>
             <img
-              src={Experience}
+              src={homeExperienceImage}
               alt='Main festival stage'
               className={styles.stageImage}
             />
