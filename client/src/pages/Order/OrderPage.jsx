@@ -3,30 +3,36 @@ import styles from './OrderPage.module.scss';
 
 export default function OrderPage() {
   return (
-    <div className={`container ${styles.page}`}>
-      <header className={styles.header}>
-        <div>
-          <h1 className={styles.title}>Order a ticket</h1>
-          <p className={styles.lead}>
-            Choose a day, pick an available seat, and enter your details.
-            Booking is instant.
-          </p>
-        </div>
+    <div className={styles.page}>
+      <div className='container'>
+        <header className={styles.header}>
+          <div className={styles.heading}>
+            <h1 className={styles.title}>Secure Your Pulse.</h1>
+            <p className={styles.lead}>
+              Complete your booking for the main stage arena. Choose a day, pick
+              an available seat, and confirm your reservation in just a few
+              steps.
+            </p>
+          </div>
 
-        <div className={styles.steps} aria-label='Steps'>
-          <div className={styles.step}>
-            <span className={styles.stepNum}>1</span> Day
+          <div className={styles.steps} aria-label='Booking steps'>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>1</span>
+              <span>Select day</span>
+            </div>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>2</span>
+              <span>Choose seat</span>
+            </div>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>3</span>
+              <span>Confirm details</span>
+            </div>
           </div>
-          <div className={styles.step}>
-            <span className={styles.stepNum}>2</span> Seat
-          </div>
-          <div className={styles.step}>
-            <span className={styles.stepNum}>3</span> Details
-          </div>
-        </div>
-      </header>
+        </header>
 
-      <OrderTicketForm />
+        <OrderTicketForm />
+      </div>
     </div>
   );
 }
