@@ -46,9 +46,9 @@ Real-time updates are handled via **Socket.io.**
 
 ## Screenshots
 
-| Home                          | Pricing                             | Book Tickets                                 |
-| ----------------------------- | ----------------------------------- | -------------------------------------------- |
-| ![Home](screenshots/home.png) | ![Pricing](screenshots/pricing.png) | ![Book Tickets](screenshots/bookTickets.png) |
+| Home                          | Prices                            | Booking Tickets                             |
+| ----------------------------- | --------------------------------- | ------------------------------------------- |
+| ![Home](screenshots/home.png) | ![Prices](screenshots/prices.png) | ![Booking Tickets](screenshots/booking.png) |
 
 ---
 
