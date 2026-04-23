@@ -1,0 +1,62 @@
+@use '../../../styles/settings.scss' as *;
+
+.vipCard {
+  position: relative;
+  min-height: 160px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid $color-border;
+}
+
+.vipImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vipOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.18) 0%,
+    rgba(10, 10, 10, 0.78) 100%
+  );
+}
+
+.vipContent {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 18px;
+  z-index: 1;
+}
+
+.vipLabel {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #ff80bf;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.vipTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: $color-text;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .vipCard {
+    border-radius: 20px;
+  }
+
+  .vipTitle {
+    font-size: 1.2rem;
+  }
+}

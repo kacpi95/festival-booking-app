@@ -26,7 +26,7 @@
 .cardSub {
   margin: 0;
   color: $color-text-muted;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -37,10 +37,10 @@
 }
 
 .label {
-  color: #d791ff;
   font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
+  color: #d791ff;
   text-transform: uppercase;
 }
 
@@ -68,14 +68,14 @@
 
   span {
     min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 12px;
     border: 1px solid transparent;
     background: rgba(255, 255, 255, 0.06);
     color: $color-text-muted;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.84rem;
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -110,7 +110,7 @@
 
 .summaryLabel {
   color: $color-text-muted;
-  font-size: 0.96rem;
+  font-size: 1rem;
 }
 
 .summaryValue {
@@ -136,8 +136,8 @@
   line-height: 1.6;
 
   a {
-    color: $color-text;
     margin: 0 4px;
+    color: $color-text;
     text-decoration: none;
 
     &:hover {
@@ -156,12 +156,12 @@
   margin-top: 22px;
   border: 0;
   border-radius: 16px;
-  background: linear-gradient(135deg, #d67bff 0%, $color-primary 100%);
   color: #fff;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  background: linear-gradient(135deg, #d67bff 0%, $color-primary 100%);
   cursor: pointer;
 
   transition:
@@ -175,5 +175,23 @@
   &:disabled {
     opacity: 0.45;
     cursor: not-allowed;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    border-radius: 20px;
+  }
+
+  .card {
+    padding: 20px 16px;
+  }
+
+  .dayTabs {
+    grid-template-columns: 1fr;
+  }
+
+  .totalPrice {
+    font-size: 1.6rem;
   }
 }

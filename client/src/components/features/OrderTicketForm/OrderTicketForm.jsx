@@ -5,6 +5,7 @@ import SeatChooser from '../SeatChooser/SeatChooser';
 import { addSeatRequest, getRequests } from '../../../redux/seatsRedux';
 import styles from './OrderTicketForm.module.scss';
 import BookingDetailsCard from '../BookingDetailsCard/BookingDetailsCard';
+import VipUpgradeCard from '../VipUpgradeCard/VipUpgradeCard';
 
 export default function OrderTicketForm() {
   const dispatch = useDispatch();
@@ -84,6 +85,7 @@ export default function OrderTicketForm() {
             updateTextField={updateTextField}
             updateNumberField={updateNumberField}
           />
+          <VipUpgradeCard />
         </section>
 
         <aside className={styles.side}>
