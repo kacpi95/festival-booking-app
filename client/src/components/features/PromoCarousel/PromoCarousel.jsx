@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import styles from './PromoCarousel.module.scss';
 import bgc from '../../../assets/bgc.jpg';
 
@@ -14,11 +15,11 @@ export default function PromoCarousel() {
           <span className={styles.badge}>New Wave Festival 2026</span>
 
           <h1 className={styles.title}>
-            Feel the
+            FEEL THE
             <br />
-            electric
+            <span className={styles.logoAccent}>ELECTRIC</span>
             <br />
-            rhythm
+            RHYTHM
           </h1>
 
           <p className={styles.description}>
