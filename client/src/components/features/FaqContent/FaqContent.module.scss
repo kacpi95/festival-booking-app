@@ -115,7 +115,10 @@
   background: $color-border;
 }
 
-
+.accordions {
+  display: grid;
+  gap: 12px;
+}
 
 .purple {
   .sectionHeader h2 {

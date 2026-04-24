@@ -1,6 +1,7 @@
 import styles from './FaqContent.module.scss';
 import faqData from '../../../data/faqData.js';
 import faqContentImage from '../../../assets/faq-content-image.png';
+import FaqAccordion from '../FaqAccordion/FaqAccordion.jsx';
 
 export default function FaqContent() {
   return (
@@ -35,6 +36,16 @@ export default function FaqContent() {
             <div className={styles.sectionHeader}>
               <span className={styles.line} />
               <h2>{section.label}</h2>
+            </div>
+
+            <div className={styles.accordions}>
+              {section.items.map((item) => (
+                <FaqAccordion
+                  key={item.question}
+                  question={item.question}
+                  answer={item.answer}
+                />
+              ))}
             </div>
           </section>
         ))}
