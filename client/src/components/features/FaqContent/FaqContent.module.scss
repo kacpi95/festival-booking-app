@@ -1,0 +1,191 @@
+@use '../../../styles/settings.scss' as *;
+
+.content {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 34px;
+  padding-top: 54px;
+  padding-bottom: 70px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.sidebarLabel {
+  display: block;
+  margin-bottom: 14px;
+  color: $color-text-muted;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.categoryList {
+  display: grid;
+  gap: 8px;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 12px;
+    color: $color-text-muted;
+    font-size: 1rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.03);
+    transition:
+      color $transition-fast,
+      background $transition-fast,
+      transform $transition-fast;
+
+    &:hover {
+      color: $color-text;
+      background: rgba(191, 64, 255, 0.12);
+      transform: translateX(3px);
+    }
+  }
+}
+
+.mapCard {
+  margin-top: 24px;
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.03);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0.85;
+  }
+
+  span {
+    display: block;
+    margin-top: 12px;
+    color: $color-text;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 4px 0 0;
+    color: $color-text-muted;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
+
+.sections {
+  display: grid;
+  gap: 54px;
+}
+
+.faqSection {
+  scroll-margin-top: 120px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $color-text;
+    text-transform: uppercase;
+  }
+}
+
+.line {
+  height: 2px;
+  flex: 1;
+  background: $color-border;
+}
+
+
+
+.purple {
+  .sectionHeader h2 {
+    color: #d791ff;
+  }
+
+  .line {
+    background: linear-gradient(90deg, rgba(191, 64, 255, 0.8), transparent);
+  }
+}
+
+.cyan {
+  .sectionHeader h2 {
+    color: $color-secondary;
+  }
+
+  .line {
+    background: linear-gradient(90deg, rgba(0, 229, 255, 0.8), transparent);
+  }
+}
+
+.pink {
+  .sectionHeader h2 {
+    color: #ff80bf;
+  }
+
+  .line {
+    background: linear-gradient(90deg, rgba(255, 0, 127, 0.8), transparent);
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .categoryList {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+
+    a {
+      white-space: nowrap;
+    }
+  }
+
+  .mapCard {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding-top: 36px;
+    padding-bottom: 52px;
+  }
+
+  .sections {
+    gap: 42px;
+  }
+
+  .sectionHeader {
+    align-items: flex-end;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+}
