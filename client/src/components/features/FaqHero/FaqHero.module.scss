@@ -1,0 +1,70 @@
+@use '../../../styles/settings.scss' as *;
+
+.hero {
+  position: relative;
+  height: clamp(280px, 42vh, 420px);
+  overflow: hidden;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.92)),
+      linear-gradient(90deg, rgba(10, 10, 10, 0.78), rgba(10, 10, 10, 0.28));
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.heroContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-top: 96px;
+  z-index: 1;
+}
+
+.title {
+  margin: 0;
+  color: $color-text;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+
+  span {
+    background: linear-gradient(90deg, $color-secondary, $color-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.lead {
+  max-width: 560px;
+  margin: 14px 0 0;
+  color: $color-text-muted;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: 260px;
+  }
+
+  .heroContent {
+    padding-top: 86px;
+  }
+}
