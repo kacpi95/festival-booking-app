@@ -10,6 +10,14 @@ Real-time updates are handled via **Socket.io.**
 
 ---
 
+## Live Demo
+
+https://newwavefest.pl
+
+⚠️ Note: Backend is hosted on Render free tier, first request may take a few seconds.
+
+---
+
 ## Features
 
 ### Concerts & Lineup
@@ -23,11 +31,12 @@ Real-time updates are handled via **Socket.io.**
 
 ### Ticket Booking
 
-- Ticket order form with validation
-- Seat selection per festival day
-- Real-time seat availability (Socket.io)
-- Disabled seats when already taken
-- Visual seat legend and counter
+- Multi-section booking flow with validation
+- Interactive live seat map
+- Real-time seat availability via Socket.io
+- Automatic blocking of reserved seats
+- Per-day ticket pricing
+- Seat legend and live availability counter
 
 ### UI & UX
 
@@ -41,6 +50,7 @@ Real-time updates are handled via **Socket.io.**
 - Sticky navigation
 - Consistent spacing, typography, and cards
 - Global layout with footer pinned to bottom
+- Modern dark neon redesign inspired by festival landing pages
 
 ---
 
@@ -71,6 +81,32 @@ Real-time updates are handled via **Socket.io.**
 - Socket.io
 - dotenv
 - CORS
+
+---
+
+## Deployment
+
+- Frontend hosted on Hostinger
+- Backend API hosted on Render
+- Database hosted on MongoDB Atlas
+
+Split deployment architecture:
+
+- Frontend communicates with Render API
+- Real-time seats handled via Socket.io
+
+---
+
+## Architecture Overview
+
+- REST API with Express
+- MongoDB models:
+  - Concerts
+  - Seats
+  - Testimonials
+- Redux global state
+- Socket.io live seat synchronization
+- CSS Modules scalable UI system
 
 ---
 
