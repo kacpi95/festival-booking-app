@@ -47,7 +47,7 @@ export default function MainMenu() {
             >
               Book
             </NavLink>
-            <NavLink to='/' className={navLinkClass} onClick={closeMenu}>
+            <NavLink to='/faq' className={navLinkClass} onClick={closeMenu}>
               FAQ
             </NavLink>
           </nav>
