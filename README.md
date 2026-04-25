@@ -56,9 +56,9 @@ https://newwavefest.pl
 
 ## Screenshots
 
-| Home                          | Prices                            | Booking Tickets                             |
-| ----------------------------- | --------------------------------- | ------------------------------------------- |
-| ![Home](screenshots/home.png) | ![Prices](screenshots/prices.png) | ![Booking Tickets](screenshots/booking.png) |
+| Home                          | Prices                            | Booking Tickets                             | FAQ                         |
+| ----------------------------- | --------------------------------- | ------------------------------------------- | --------------------------- |
+| ![Home](screenshots/home.png) | ![Prices](screenshots/prices.png) | ![Booking Tickets](screenshots/booking.png) | ![FAQ](screenshots/faq.png) |
 
 ---
 
