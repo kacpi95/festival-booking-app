@@ -1,0 +1,91 @@
+@use '../../../styles/settings.scss' as *;
+
+.ctaSection {
+  padding: 76px 0;
+  background:
+    radial-gradient(circle at center, rgba(191, 64, 255, 0.1), transparent 36%),
+    #120f16;
+}
+
+.ctaCard {
+  text-align: center;
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1;
+    color: $color-text;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+
+    span {
+      color: #d791ff;
+    }
+  }
+
+  p {
+    max-width: 620px;
+    margin: 18px auto 0;
+    color: $color-text-muted;
+    line-height: 1.7;
+  }
+}
+
+.ctaActions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 46px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  border-radius: 50px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    transform $transition-fast,
+    background $transition-fast;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #d67bff, $color-primary);
+  color: #fff;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.secondaryButton {
+  color: $color-text;
+  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.03);
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.07);
+  }
+}
+
+@media (max-width: 640px) {
+  .ctaSection {
+    padding: 58px 0;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
